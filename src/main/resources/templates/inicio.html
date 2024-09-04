@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Solicitudes de Tarjeta de Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .btn-detalles {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-detalles:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Listado de Solicitudes de Tarjeta de Crédito</h2>
+    <table>
+        <tr>
+            <th>ID Solicitud</th>
+            <th>Nombre Cliente</th>
+            <th>Estado</th>
+            <th>Fecha de Creación</th>
+            <th></th>
+        </tr>
+        <!-- Aquí puedes iterar sobre la lista de solicitudes y generar las filas de la tabla -->
+        <tr th:each="solicitud : ${solicitudes}">
+            <td th:text="${solicitud.idSolicitud}"></td>
+            <td th:text="${solicitud.cliente.nombre}"></td>
+            <td th:text="${solicitud.estado.descripcion}"></td>
+            <td th:text="${#temporals.format(solicitud.fechaCreacion, 'dd/MM/yyyy')}"></td>
+            <td>
+                <a th:href="@{'/detalles/' + ${solicitud.idSolicitud}}" class="btn-detalles">Detalles de la Solicitud</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

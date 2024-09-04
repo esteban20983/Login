@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TarjetaApplication<tarjeta>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "co.tarjetaCredito.TarjetaApplication",
+            "projectName": "tarjeta",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

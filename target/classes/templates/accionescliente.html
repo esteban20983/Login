@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Tarjeta de Crédito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .info {
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button.buy {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .button.pay {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .button.extract {
+            background-color: #ffc107;
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Detalle de Tarjeta de Crédito</h2>
+        <div class="info">
+            <strong>Serial:</strong> <span th:text="${serial}"></span>
+        </div>
+        <div class="info">
+            <strong>Cliente:</strong> <span th:text="${cliente}"></span>
+        </div>
+        <div class="info">
+            <strong>Saldo Actual:</strong> <span th:text="${saldo}">0.00</span> COP
+        </div>
+        <div class="info">
+            <strong>Límite de Crédito:</strong> <span th:text="${limite}">0.00</span> COP
+        </div>
+        <div class="info">
+            <strong>Número de Cuotas:</strong> <span th:text="${numeroCuotas}"></span>
+        </div>
+        <div class="info">
+            <strong>Estado:</strong> <span th:text="${estado}"></span>
+        </div>
+        
+        <div class="button-container">
+            <button class="button buy">Comprar</button>
+            <button class="button pay">Pago</button>
+            <button class="button extract">Extracto Bancario</button>
+        </div>
+    </div>
+</body>
+</html>
