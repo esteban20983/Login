@@ -2,7 +2,6 @@ package co.tarjetaCredito.Imp;
 
 import co.tarjetaCredito.servicios.ClienteServicios;
 import co.tarjetaCredito.entidades.Cliente;
-import co.tarjetaCredito.entidades.Empleado;
 import co.tarjetaCredito.repositorios.ClienteRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
