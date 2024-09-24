@@ -26,47 +26,10 @@ public class Pasadias implements Serializable {
     @Column(name = "COSTO")
     private Double costo;
 
-    public Long getSerial() {
-        return Serial;
-    }
-
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(Double costo) {
-        this.costo = costo;
-    }
-
-    @Override
-    public String toString() {
-        return "Pasadias{" +
-                "Serial=" + Serial +
-                ", fecha=" + fecha +
-                ", tipo='" + tipo + '\'' +
-                ", costo=" + costo +
-                '}';
-    }
+    //RELACIÓN TABLAS
+    @ManyToOne
+    @JoinColumn(name = "CLI_CODIGO") // pasadia a cliente muchos-1 ok
+    private Cliente cliente;
 }
 
 

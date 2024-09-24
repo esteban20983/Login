@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,45 +27,9 @@ public class Cabañas {
     @Column(name = "CAPACIDAD")
     private Integer cApacidad;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @OneToMany(mappedBy = "cabañas")
+    private List<Inventario> inventarios; // Cabaña a inventario 1 - Muchos ok
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
-
-    public Integer getNumCabanas() {
-        return numCabanas;
-    }
-
-    public void setNumCabanas(Integer numCabanas) {
-        this.numCabanas = numCabanas;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public Integer getcApacidad() {
-        return cApacidad;
-    }
-
-    public void setcApacidad(Integer cApacidad) {
-        this.cApacidad = cApacidad;
-    }
 
     @Override
     public String toString() {

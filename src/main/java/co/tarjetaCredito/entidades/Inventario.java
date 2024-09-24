@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -26,45 +27,13 @@ public class Inventario {
     @Column(name = "CANT_DISPO")
     private Integer cantidadDispo;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_SERVICIO")
+    private Servicios servicios; //inventario a servicios muchos-1 ok
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(Double costo) {
-        this.costo = costo;
-    }
-
-    public Integer getCantidadDispo() {
-        return cantidadDispo;
-    }
-
-    public void setCantidadDispo(Integer cantidadDispo) {
-        this.cantidadDispo = cantidadDispo;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_CABAÑA")
+    private Cabañas cabañas; //Inventario a cabañas mucchos-1 ok
 
     @Override
     public String toString() {

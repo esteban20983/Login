@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,77 +15,38 @@ import java.time.LocalDate;
 @Table(name="RESERVAS")
 public class Reservas {
     @Id
-    @SequenceGenerator(name = "SEQ_RESERVAS", sequenceName = "SEQ_RESERVAS", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_RESERVA")
     private Long Serial;
+    @Column(name = "DIAS_HOSPE")
+    private Integer DiasHospe;
     @Column(name="FECHA_RESERVA")
     private LocalDate Fecha;
     @Column(name = "NUM_ADULTOS")
     private Integer NumAdultos;
     @Column(name = "NUM_NIÑOS")
     private Integer NumNinos;
-    @Column(name = "DIAS_HOSPE")
-    private Integer DiasHospe;
-    @Column(name = "METODO_PAGO")
-    private String metodo;
 
-    public Long getSerial() {
-        return Serial;
-    }
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
+    //RELACION DE TABLAS
+    @ManyToOne
+    @JoinColumn(name = "CLI_CODIGO", nullable = true)    // RESERVA A CLIENTE muchos-1 ok
+    private Cliente cliente;
 
-    public LocalDate getFecha() {
-        return Fecha;
-    }
+    @OneToMany(mappedBy = "reservas")    // RESERVA A PEDIDOS 1 -mucho ok
+    private List<Pedidos> pedidos;
 
-    public void setFecha(LocalDate fecha) {
-        Fecha = fecha;
-    }
-
-    public Integer getNumAdultos() {
-        return NumAdultos;
-    }
-
-    public void setNumAdultos(Integer numAdultos) {
-        NumAdultos = numAdultos;
-    }
-
-    public Integer getNumNinos() {
-        return NumNinos;
-    }
-
-    public void setNumNinos(Integer numNinos) {
-        NumNinos = numNinos;
-    }
-
-    public Integer getDiasHospe() {
-        return DiasHospe;
-    }
-
-    public void setDiasHospe(Integer diasHospe) {
-        DiasHospe = diasHospe;
-    }
-
-    public String getMetodo() {
-        return metodo;
-    }
-
-    public void setMetodo(String metodo) {
-        this.metodo = metodo;
-    }
+    @OneToMany(mappedBy = "reservas")
+    private List<AlquilerEventos> alquilerEventos;  //reservas a alquiler 1-muchos ok
 
     @Override
     public String toString() {
         return "Reservas{" +
-                "Serial=" + Serial +
-                ", Fecha=" + Fecha +
+                "NumNinos=" + NumNinos +
                 ", NumAdultos=" + NumAdultos +
-                ", NumNinos=" + NumNinos +
+                ", Fecha=" + Fecha +
                 ", DiasHospe=" + DiasHospe +
-                ", metodo='" + metodo + '\'' +
+                ", Serial=" + Serial +
                 '}';
     }
 }

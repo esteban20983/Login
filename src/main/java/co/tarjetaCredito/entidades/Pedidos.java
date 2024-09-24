@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,37 +26,13 @@ public class Pedidos {
     @Column(name = "COSTO")
     private Double Costo;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_RESERVA", nullable = true)    //pedidos a reserva muchos-1 ok
+    private Reservas reservas;
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
-
-    public LocalDate getFecha() {
-        return Fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        Fecha = fecha;
-    }
-
-    public String getDetalle() {
-        return Detalle;
-    }
-
-    public void setDetalle(String detalle) {
-        Detalle = detalle;
-    }
-
-    public Double getCosto() {
-        return Costo;
-    }
-
-    public void setCosto(Double costo) {
-        Costo = costo;
-    }
+    @ManyToOne
+    @JoinColumn(name="ID_SERVICIO")
+    private Servicios servicios; // pedido a servicios muchos a 1 ok
 
     @Override
     public String toString() {

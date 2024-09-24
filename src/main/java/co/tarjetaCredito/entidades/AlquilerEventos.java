@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 
 
 @Data
@@ -20,22 +21,15 @@ public class AlquilerEventos {
     @Column(name = "Costo")
     private Double Costo;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_RESERVA" , nullable = true)
+    private Reservas reservas;   // alquiler a reservas muchos-1 ok
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_EVENTO")
+    private Eventos eventos; //ALQUILER A EVENTOS MUCHOS-1 ok
 
-    public Double getCosto() {
-        return Costo;
-    }
-
-    public void setCosto(Double costo) {
-        Costo = costo;
-    }
-
+    
     @Override
     public String toString() {
         return "AlquilerEventos{" +

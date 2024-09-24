@@ -11,5 +11,7 @@ public interface ClienteServicios {
 
     boolean eliminarCliente(Integer serial);
 
-    Cliente validarCliente(String correo, String contrasena);
+    Cliente validarCliente( String tipo, String correo, String contrasena, String password);
+
+    Cliente validarCliente(String tipo, String correo, String contrasena);
 }

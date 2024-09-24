@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 public class Servicios {
     @Id
     @SequenceGenerator(name = "SEQ_SERVICIOS", sequenceName = "SEQ_SERVICIOS", allocationSize = 1)
-    @Column(name = "ID_PEDIDO")
+    @Column(name = "ID_SERVICIO")
     private Long Serial;
     @Column(name="Nombre")
     private String Nombre;
@@ -24,37 +25,12 @@ public class Servicios {
     @Column(name = "Costo")
     private Double costo;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @OneToMany (mappedBy = "servicios" )//SERVICIOS A PEDIDOS 1-muchos ok
+    private List<Pedidos> pedidos;
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
+    @OneToMany(mappedBy = "servicios")// servicios a inventario 1 - muchos ok
+    private List<Inventario> inventarios;
 
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String nombre) {
-        Nombre = nombre;
-    }
-
-    public String getTipo() {
-        return Tipo;
-    }
-
-    public void setTipo(String tipo) {
-        Tipo = tipo;
-    }
-
-    public Double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(Double costo) {
-        this.costo = costo;
-    }
 
     @Override
     public String toString() {

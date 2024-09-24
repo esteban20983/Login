@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,45 +27,9 @@ public class Eventos {
     @Column(name = "COSTO")
     private Double Costo;
 
-    public Long getSerial() {
-        return Serial;
-    }
+    @OneToMany(mappedBy = "eventos")
+    private List<AlquilerEventos> alquilereventos; // Eventos a alquiler de 1-muchos ok
 
-    public void setSerial(Long serial) {
-        Serial = serial;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Double getCosto() {
-        return Costo;
-    }
-
-    public void setCosto(Double costo) {
-        Costo = costo;
-    }
 
     @Override
     public String toString() {

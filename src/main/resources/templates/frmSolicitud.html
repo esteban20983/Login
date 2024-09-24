@@ -4,55 +4,114 @@
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio de Sesión Exitoso</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f2f2f2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-            
-            .container {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 300px;
-                text-align: center;
-            }
-            
-            h2 {
-                margin-top: 0;
-                color: #28a745;
-            }
-            
-            p {
-                margin-top: 10px;
-                color: #333;
-            }
-            
-            a {
-                display: inline-block;
-                margin-top: 20px;
-                color: #007bff;
-                text-decoration: none;
-                font-weight: bold;
-            }
-            
-            a:hover {
-                text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h2>Inicio de Sesión Exitoso</h2>
-            <p>¡Has iniciado sesión correctamente!</p>
-        </div>
-    </body>
+        <title>Registrar Reservas</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #f2f2f2;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+              }
+
+              .container {
+                  background-color: #fff;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                  width: 300px;
+              }
+              label {
+                  display: block;  /* Hace que cada label ocupe toda la línea */
+                  margin-bottom: 5px;  /* Espacio entre el label y el input */
+              }
+
+              input {
+                  margin-bottom: 15px;  /* Espacio entre los inputs */
+                  width: 100%;  /* Opcional: para que los inputs ocupen todo el ancho */
+              }
+
+              h2 {
+                  margin-top: 0;
+                  text-align: center;
+              }
+
+              form {
+                  display: flex;
+                  flex-direction: column;
+              }
+
+              label {
+                  margin-bottom: 5px;
+              }
+              input[type="Nombre"],
+              input[type="Fecha de reserva"]
+              input[type="Numero de adultos"]
+              input[type="Numero de niños"]
+              input[type="dias de hospedaje"] {
+                  padding: 10px;
+                  margin-bottom: 10px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  width: 100%;
+                  box-sizing: border-box; /* Asegura que el padding no aumente el ancho */
+              }
+              select {
+                  margin-bottom: 15px; /* Aumenta el espacio entre el select y el siguiente input */
+              }input[type="submit"] {
+                   background-color: #007bff;
+                   color: #fff;
+                   border: none;
+                   padding: 10px;
+                   border-radius: 4px;
+                   cursor: pointer;
+               }
+
+              input[type="submit"]:hover {
+                  background-color: #0056b3;
+              }
+
+              p {
+                  margin-top: 10px;
+                  text-align: center;
+              }
+
+              a {
+                  color: #007bff;
+                  text-decoration: none;
+              }
+
+              a:hover {
+                  text-decoration: underline;
+              }
+         </Style>
+      </head>
+      <body>
+      <div class="container">
+          <h2>Registrar reservas</h2>
+          <form action="/reservas/crear" method="post">
+
+              <label for="DiasHospedaje">Días de hospedaje:</label>
+              <input type="number" id="DiasHospedaje" name="DiasHospedaje" required>
+
+              <label for="FechaReserva">Fecha de reserva:</label>
+              <input type="date" id="FechaReserva" name="FechaReserva" required>
+
+              <label for="NumAdultos">Número de adultos:</label>
+              <input type="number" id="NumAdultos" name="NumAdultos" required>
+
+              <label for="NumNiños">Número de niños:</label>
+              <input type="number" id="NumNiños" name="NumNiños" required>
+
+
+
+
+              <input type="submit" value="Reservar">
+
+          </form>
+      </div>
+      </body>
 </html>

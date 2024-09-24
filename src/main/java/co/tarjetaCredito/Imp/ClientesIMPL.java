@@ -50,10 +50,15 @@ public class ClientesIMPL implements ClienteServicios {
     }
 
     @Override
-    public Cliente validarCliente(String correo, String contrasena) {
+    public Cliente validarCliente(String tipo, String correo, String contrasena, String password) {
+        return null;
+    }
+
+    @Override
+    public Cliente validarCliente(String tipo, String correo, String contrasena) {
         List<Cliente> cliente = (List<Cliente>) this.clienteRepo.findByCorreo(correo);
         for(Cliente objemp: cliente) {
-            if(objemp.getContrasena().equals(contrasena)){
+            if(objemp.getContrasena().equals(contrasena) && objemp.getTipo().equals(tipo)){
                 return objemp;
             }else{
                 return null;
