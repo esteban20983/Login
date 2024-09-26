@@ -31,7 +31,7 @@ public class ClienteControl {
             validador = this.clienteServicios.validarCliente(tipo, email, password);
             if (validador != null && tipo.equals("Cliente")) {
                 session.setAttribute("clienteLogueado", validador); // Guardar el cliente en sesión
-                return "redirect:/reservas/crear";
+                return "/servicios";
             } else {
                 redirectAttributes.addFlashAttribute("errorMensaje", "Las credenciales son incorrectas o tipo de usuario no coinciden.");
                 return "/cliente";

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas de Servicios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .service {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .service img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Seleccione un Servicio</h1>
+
+<div class="service">
+    <img src="/image/logo_desayuno.png" alt="Servicio de Desayuno">
+    <a href="/reservar/desayuno">Servicio de Desayuno</a>
+</div>
+<div class="service">
+    <img src="/image/logo_almuerzo.png" alt="Servicio de Almuerzo">
+    <a href="/reservar/almuerzo">Servicio de Almuerzo</a>
+</div>
+<div class="service">
+    <img src="/image/logo_bar.png" alt="Servicio de Bar">
+    <a href="/reservar/bar">Servicio de Bar</a>
+</div>
+<div class="service">
+    <img src="/image/logo_estado_cabanas.png" alt="Estado de las Cabañas">
+    <a href="/estado/cabanas">Estado de las Cabañas</a>
+</div>
+<div class="service">
+    <img src="/image/logo_estado_habitaciones.png" alt="Estado de las Habitaciones">
+    <a href="/estado/habitaciones">Estado de las Habitaciones</a>
+</div>
+<div class="service">
+    <img src="/image/logo_reservas.png" alt="Realizar Reserva">
+    <a href="/reservar">Realizar Reserva</a>
+</div>
+</body>
+</html>
