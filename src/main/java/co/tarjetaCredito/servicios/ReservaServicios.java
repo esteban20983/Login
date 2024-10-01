@@ -5,6 +5,6 @@ import co.tarjetaCredito.entidades.Cliente;
 import co.tarjetaCredito.entidades.Reservas;
 
 public interface ReservaServicios{
-    void guardarReserva(Reservas reserva, Cliente cliente);
+    void guardarReserva(Reservas reservas, Cliente cliente);
 }
 
