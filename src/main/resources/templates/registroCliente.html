@@ -5,36 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <!-- CSS de Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="StyleCli.css">
+
     <style>
-        /* Estilos personalizados */
         body {
-            background-color: #f8f9fa;
+            background-color: #f4f7fa; /* Color de fondo suave */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
-            margin-top: 50px; /* Espacio arriba */
+            background-color: #ffffff;
+            padding: 15px; /* Espaciado reducido */
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px; /* Ancho máximo reducido */
         }
-        select {
-            height: 38px; /* Aumenta la altura del select */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Margen inferior reducido */
+            font-size: 20px; /* Tamaño de fuente reducido */
+        }
+        .form-group {
+            margin-bottom: 10px; /* Espaciado entre grupos reducido */
         }
         label {
-            margin-top: 10px; /* Espacio entre etiquetas */
+            display: block; /* Hacer que la etiqueta ocupe toda la línea */
+            margin-bottom: 3px; /* Espaciado debajo de la etiqueta */
+            color: #555;
+            text-align: left; /* Alinear texto a la izquierda */
+            font-size: 14px; /* Tamaño de fuente de la etiqueta reducido */
+        }
+        select, input {
+            height: 30px; /* Altura reducida */
+            width: 100%;
+            border: 1px solid #ced4da; /* Borde suave */
+            border-radius: 5px; /* Bordes más suaves */
+            padding: 5px; /* Relleno ajustado */
+            font-size: 14px; /* Tamaño de fuente reducido */
+            transition: border-color 0.3s;
+        }
+        select:focus, input:focus {
+            border-color: #007bff; /* Color del borde al enfocar */
+            outline: none; /* Sin contorno */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            height: 30px; /* Altura del botón ajustada */
+            border: none;
+            border-radius: 5px; /* Bordes más suaves */
+            font-size: 14px; /* Tamaño de fuente reducido */
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer; /* Cambia el cursor al pasar */
+            width: 100%; /* Botón ocupa todo el ancho */
+        }
+        button:hover {
+            background-color: #0056b3; /* Color al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación */
+        }
+        .error-message {
+            color: red;
+            font-size: 0.8em; /* Tamaño de fuente de mensaje de error reducido */
+            margin-top: 5px; /* Espacio encima del mensaje de error */
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2 class="text-center">Registro</h2>
-    <form action="/guardarCliente" method="post" >
+    <h2>Registro</h2>
+    <form action="/guardarCliente" method="post" id="registroForm">
         <div class="form-group">
-        <label  for = "tipo" >Tipo de usuario: </label>
-        <select id="tipo" name="tipo" required>
-            <option value="" disabled selected > </option>
-            <option value="Administrador">Administrador</option>
-            <option value="Cliente">Cliente</option>
-            <option value="Empleado">Empleado</option>
-        </select>
+            <label for="tipo">Tipo de usuario:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Seleccione un tipo</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Cliente">Cliente</option>
+                <option value="Empleado">Empleado</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="nombre">Nombre:</label>
@@ -42,7 +95,8 @@
         </div>
         <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" required>
+            <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{10}">
+            <small class="error-message" id="telefonoError"></small>
         </div>
         <div class="form-group">
             <label for="correo">Correo electrónico:</label>
@@ -50,17 +104,33 @@
         </div>
         <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" required minlength="6">
+        </div>
+        <div class="form-group">
+            <label for="confirmarContrasena">Confirmar Contraseña:</label>
+            <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" required>
+            <small class="error-message" id="contrasenaError"></small>
         </div>
         <div class="form-group">
             <label for="direccion">Dirección:</label>
             <input type="text" class="form-control" id="direccion" name="direccion" required>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
     </form>
 </div>
 
-<!-- JS de Bootstrap 4 -->
+<script>
+    document.getElementById('registroForm').onsubmit = function(event) {
+        let contrasena = document.getElementById('contrasena').value;
+        let confirmarContrasena = document.getElementById('confirmarContrasena').value;
+        if (contrasena !== confirmarContrasena) {
+            event.preventDefault();
+            document.getElementById('contrasenaError').innerText = 'Las contraseñas no coinciden.';
+        } else {
+            document.getElementById('contrasenaError').innerText = '';
+        }
+    };
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

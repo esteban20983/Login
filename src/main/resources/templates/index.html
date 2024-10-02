@@ -6,86 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="StyleIndex.css">
-
-<body>
-    <div class="fondo">
-        <h1>Bienvenido al club</h1>
-        <h2> Buena Vida</h2>
-    </div>
-</body>
-
-    <style>
-
-        h1 {
-            color: #ffffff;
-            font-family: cursive;
-            font-size: 40px;
-        }
-
-        h2 {
-            color: #ffffff;
-            font-family: cursive;
-            font-size: 35px;
-        }
-
-        body {
-            background-image: url("https://img.freepik.com/fotos-gratis/casa-fotorrealista-com-arquitetura-de-madeira-e-estrutura-de-madeira_23-2151302709.jpg?t=st=1727390056~exp=1727393656~hmac=ba083b6554163e53d9fc6eff1a9c2938f04b51290907df95daa1b183163ac191&w=1060");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /*height: 100vh;
-            margin: 0;*/
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-image: url("https://img.freepik.com/fotos-gratis/casa-fotorrealista-com-arquitetura-de-madeira-e-estrutura-de-madeira_23-2151302709.jpg?t=st=1727390056~exp=1727393656~hmac=ba083b6554163e53d9fc6eff1a9c2938f04b51290907df95daa1b183163ac191&w=1060");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Cambiar a dirección vertical */
+            align-items: center; /* Centrar horizontalmente */
             height: 100vh;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .fondo {
+            margin-top: 50px; /* Espacio desde la parte superior */
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 40px;
+            color: #cacaca;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+            color: #cdcdcd;
+            font-weight: bold;
         }
 
         .container {
             background-color: transparent;
-            padding: 20px;
-            width: 130px;
-        }
-
-        h3 {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .button-group {
-            margin-top: 20px;
+            padding: 30px;
+            border-radius: 12px;
         }
 
         .button {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #9EDD4B;
+            color: #000000;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background-color: #82C341;
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: translateY(1px);
         }
     </style>
+
+
+
 </head>
 <body>
-    <div class="container">
-            <button class="button" onclick="redirectToCliente()">Iniciar Sesion</button>
-    </div>
-    <script>
-        function redirectToCliente() {
-            window.location.href = "/validarCliente";
-        }
-    </script>
+<div class="fondo">
+    <h1>BIENVENIDO AL CLUB</h1>
+    <h2>LA BUENA VIDA</h2>
+</div>
+<div class="container">
+    <button class="button" onclick="redirectToCliente()">Iniciar Sesión</button>
+</div>
+<script>
+    function redirectToCliente() {
+        window.location.href = "/validarCliente";
+    }
+</script>
 </body>
 </html>
