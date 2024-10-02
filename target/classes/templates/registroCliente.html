@@ -5,36 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <!-- CSS de Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="StyleCli.css">
+
     <style>
-        /* Estilos personalizados */
         body {
-            background-color: #f8f9fa;
+            background-color: #e9ecef;
+            font-family: 'Roboto', sans-serif;
         }
         .container {
-            margin-top: 50px; /* Espacio arriba */
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
         }
-        select {
-            height: 38px; /* Aumenta la altura del select */
+        select, input {
+            height: 40px;
         }
         label {
-            margin-top: 10px; /* Espacio entre etiquetas */
+            margin-top: 10px;
+        }
+        button {
+            transition: background-color 0.3s;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <h2 class="text-center">Registro</h2>
-    <form action="/guardarCliente" method="post" >
+    <form action="/guardarCliente" method="post" id="registroForm">
         <div class="form-group">
-        <label  for = "tipo" >Tipo de usuario: </label>
-        <select id="tipo" name="tipo" required>
-            <option value="" disabled selected > </option>
-            <option value="Administrador">Administrador</option>
-            <option value="Cliente">Cliente</option>
-            <option value="Empleado">Empleado</option>
-        </select>
+            <label for="tipo">Tipo de usuario:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Seleccione un tipo</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Cliente">Cliente</option>
+                <option value="Empleado">Empleado</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="nombre">Nombre:</label>
@@ -42,7 +59,8 @@
         </div>
         <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" required>
+            <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{10}">
+            <small class="error-message" id="telefonoError"></small>
         </div>
         <div class="form-group">
             <label for="correo">Correo electrónico:</label>
@@ -50,17 +68,34 @@
         </div>
         <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+            <input type="password" class="form-control" id="contrasena" name="contrasena" required minlength="6">
+        </div>
+        <div class="form-group">
+            <label for="confirmarContrasena">Confirmar Contraseña:</label>
+            <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" required>
+            <small class="error-message" id="contrasenaError"></small>
         </div>
         <div class="form-group">
             <label for="direccion">Dirección:</label>
             <input type="text" class="form-control" id="direccion" name="direccion" required>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
     </form>
 </div>
 
-<!-- JS de Bootstrap 4 -->
+<script>
+    document.getElementById('registroForm').onsubmit = function(event) {
+        let contrasena = document.getElementById('contrasena').value;
+        let confirmarContrasena = document.getElementById('confirmarContrasena').value;
+        if (contrasena !== confirmarContrasena) {
+            event.preventDefault();
+            document.getElementById('contrasenaError').innerText = 'Las contraseñas no coinciden.';
+        } else {
+            document.getElementById('contrasenaError').innerText = '';
+        }
+    };
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+</html>
 </html>
