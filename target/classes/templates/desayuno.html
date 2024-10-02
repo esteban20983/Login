@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Desayuno</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 15px;
+            width: 250px; /* Ajusta el ancho según sea necesario */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Selecciona tu Desayuno</h1>
+<h4>Cada desayuno dispuesto en el menu viene acompañado del jugo tropical que desee.</h4>
+<div class="menu-container">
+    <div class="menu-item">
+        <img src="/image/pancakes.png" alt="Pancakes">
+        <h2>Pancakes</h2>
+        <p>Deliciosos pancakes con sirope de arce y frutas frescas.</p>
+        <a href="/reservar/desayuno/pancakes" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/omelette.png" alt="Omelette">
+        <h2>Omelette</h2>
+        <p>Omelette clásico con jamón, queso y verduras.</p>
+        <a href="/reservar/desayuno/omelette" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/frutas.png" alt="Frutas Frescas">
+        <h2>Frutas Frescas</h2>
+        <p>Una selección de frutas de temporada.</p>
+        <a href="/reservar/desayuno/frutas" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/tostadas.png" alt="Tostadas">
+        <h2>Tostadas</h2>
+        <p>Tostadas con aguacate y huevo poché.</p>
+        <a href="/reservar/desayuno/tostadas" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/cereal.png" alt="Cereal">
+        <h2>Cereal</h2>
+        <p>Cereal integral con leche y frutas.</p>
+        <a href="/reservar/desayuno/cereal" class="button">Seleccionar</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -12,21 +12,37 @@
             margin: 0;
             padding: 20px;
         }
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
         .service {
-            margin: 20px 0;
+            margin: 20px;
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
             display: flex;
+            flex-direction: column;
             align-items: center;
+            width: 200px; /* Ajusta el ancho según sea necesario */
         }
         .service img {
             width: 100px;
             height: auto;
-            margin-right: 20px;
+            margin-bottom: 10px;
         }
-        form {
-            margin-top: 20px;
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -34,29 +50,31 @@
 
 <h1>Seleccione un Servicio</h1>
 
-<div class="service">
-    <img src="/image/logo_desayuno.png" alt="Servicio de Desayuno">
-    <a href="/reservar/desayuno">Servicio de Desayuno</a>
-</div>
-<div class="service">
-    <img src="/image/logo_almuerzo.png" alt="Servicio de Almuerzo">
-    <a href="/reservar/almuerzo">Servicio de Almuerzo</a>
-</div>
-<div class="service">
-    <img src="/image/logo_bar.png" alt="Servicio de Bar">
-    <a href="/reservar/bar">Servicio de Bar</a>
-</div>
-<div class="service">
-    <img src="/image/logo_estado_cabanas.png" alt="Estado de las Cabañas">
-    <a href="/estado/cabanas">Estado de las Cabañas</a>
-</div>
-<div class="service">
-    <img src="/image/logo_estado_habitaciones.png" alt="Estado de las Habitaciones">
-    <a href="/estado/habitaciones">Estado de las Habitaciones</a>
-</div>
-<div class="service">
-    <img src="/image/logo_reservas.png" alt="Realizar Reserva">
-    <a href="/reservas/crear">Realizar Reserva</a>
+<div class="services-container">
+    <div class="service">
+        <img src="/image/logo_desayuno.png" alt="Servicio de Desayuno">
+        <a href="/reservar/desayuno" class="button">Servicio de Desayuno</a>
+    </div>
+    <div class="service">
+        <img src="/image/logo_almuerzo.png" alt="Servicio de Almuerzo">
+        <a href="/reservar/almuerzo" class="button">Servicio de Almuerzo</a>
+    </div>
+    <div class="service">
+        <img src="/image/logo_bar.png" alt="Servicio de Bar">
+        <a href="/reservar/bar" class="button">Servicio de Bar</a>
+    </div>
+    <div class="service">
+        <img src="/image/logo_estado_cabanas.png" alt="Estado de las Cabañas">
+        <a href="/estado/cabanas" class="button">Estado de las Cabañas</a>
+    </div>
+    <div class="service">
+        <img src="/image/logo_estado_habitaciones.png" alt="Estado de las Habitaciones">
+        <a href="/estado/habitaciones" class="button">Estado de las Habitaciones</a>
+    </div>
+    <div class="service">
+        <img src="/image/logo_reservas.png" alt="Realizar Reserva">
+        <a href="/reservas/crear" class="button">Realizar Reserva</a>
+    </div>
 </div>
 </body>
 </html>
