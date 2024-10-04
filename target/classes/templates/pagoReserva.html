@@ -4,67 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago Reserva</title>
+    <link rel="stylesheet" href="StylePaRe.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-image: url("https://img.freepik.com/fotos-premium/elegante-secretaria-de-negocios-com-decoracao-moderna-e-iluminacao-foto_960396-1013459.jpg?w=740");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column; /* Cambiar a dirección vertical */
+            align-items: center; /* Centrar horizontalmente */
+            height: 100vh;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #495057;
         }
 
         .container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 400px; /* Increased width for better layout */
+            text-align: left; /* Align text to the left */
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            font-size: 28px;
+            color: #007bff;
+            text-align: center;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        h2 {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #343a40;
         }
 
         input[type="text"],
         input[type="number"] {
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ced4da;
             width: 100%;
             box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
         }
 
-        input[type="submit"] {
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
             background-color: #007bff;
             color: #fff;
             border: none;
-            padding: 10px;
-            border-radius: 4px;
+            padding: 12px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            width: 100%; /* Full width buttons */
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
             background-color: #0056b3;
+        }
+
+        input[type="button"] {
+            background-color: #6c757d; /* Different color for the back button */
+        }
+
+        input[type="button"]:hover {
+            background-color: #5a6268; /* Darker on hover */
         }
 
         p {
@@ -80,22 +116,39 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive design */
+        @media (max-width: 500px) {
+            .container {
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            input[type="submit"],
+            input[type="button"] {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Pago de la reserva</h2>
+    <h2>Pago de la Reserva</h2>
     <form action="/reservas/pago" method="get">
-
-        <label for="valorTotalFormateado"> Valor total: </label>
+        <label for="valorTotalFormateado">Valor total:</label>
         <input type="text" id="valorTotalFormateado" name="valorTotalFormateado" th:value="${valorTotalFormateado}" readonly>
 
-        <label for="pagoInicialFormateado" >Valor del 30% para realizar la reserva: </label>
+        <label for="pagoInicialFormateado">Valor del 30% para realizar la reserva:</label>
         <input type="text" id="pagoInicialFormateado" name="pagoInicialFormateado" th:value="${pagoInicialFormateado}">
 
         <input type="submit" value="Pagar con Tarjeta">
         <input type="submit" value="Pagar con Nequi">
-        <input type="button" value="Volver al inicio" onclick="window.location.href= '/servicios'">
+        <input type="button" value="Volver al inicio" onclick="window.location.href='/servicios'">
     </form>
 </div>
 </body>
