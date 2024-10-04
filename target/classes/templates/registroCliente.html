@@ -5,44 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="StyleCli.css">
+    <link rel="stylesheet" href="StyleRegis.css">
 
     <style>
         body {
-            background-color: #e9ecef;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://img.freepik.com/fotos-premium/papel-de-parede-com-padrao-de-folha_1134901-135109.jpg?w=826");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column; /* Cambiar a dirección vertical */
+            align-items: center; /* Centrar horizontalmente */
+            height: 100vh;
+            color: #ffffff;
+            text-align: center;
+        }
+        body {
+            background-color: #f4f7fa; /* Color de fondo suave */
             font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
-            margin-top: 50px;
             background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 50px 90px rgba(0, 0, 0, 0.9);
+            width: 100%;
+            max-width: 420px;
         }
-        select, input {
-            height: 40px;
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px; /* Margen inferior reducido */
+            font-size: 25px; /* Tamaño de fuente reducido */
+        }
+        .form-group {
+            margin-bottom: 10px; /* Espaciado entre grupos reducido */
         }
         label {
-            margin-top: 10px;
+            display: block; /* Hacer que la etiqueta ocupe toda la línea */
+            margin-bottom: 3px; /* Espaciado debajo de la etiqueta */
+            color: #555;
+            text-align: left; /* Alinear texto a la izquierda */
+            font-size: 15px; /* Tamaño de fuente de la etiqueta reducido */
+        }
+        select, input {
+            height: 30px; /* Altura reducida */
+            width: 100%;
+            border: 1px solid #ced4da; /* Borde suave */
+            border-radius: 5px; /* Bordes más suaves */
+            padding: 5px; /* Relleno ajustado */
+            font-size: 14px; /* Tamaño de fuente reducido */
+            transition: border-color 0.3s;
+        }
+        select:focus, input:focus {
+            border-color: #007bff; /* Color del borde al enfocar */
+            outline: none; /* Sin contorno */
         }
         button {
-            transition: background-color 0.3s;
             background-color: #007bff;
             color: white;
+            height: 35px; /* Altura del botón ajustada */
+            border: none;
+            border-radius: 5px; /* Bordes más suaves */
+            font-size: 15px; /* Tamaño de fuente reducido */
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer; /* Cambia el cursor al pasar */
+            width: 100%; /* Botón ocupa todo el ancho */
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Color al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación */
         }
         .error-message {
             color: red;
-            font-size: 0.9em;
+            font-size: 0.8em; /* Tamaño de fuente de mensaje de error reducido */
+            margin-top: 5px; /* Espacio encima del mensaje de error */
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2 class="text-center">Registro</h2>
+    <h2>Registro</h2>
     <form action="/guardarCliente" method="post" id="registroForm">
         <div class="form-group">
             <label for="tipo">Tipo de usuario:</label>
@@ -93,9 +144,9 @@
         } else {
             document.getElementById('contrasenaError').innerText = '';
         }
+
     };
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-</html>
 </html>

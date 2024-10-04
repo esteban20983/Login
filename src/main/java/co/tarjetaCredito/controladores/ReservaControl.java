@@ -102,7 +102,7 @@ public class ReservaControl {
         model.addAttribute("valorTotalFormateado", valorTotalFormateado);
         model.addAttribute("pagoInicialFormateado", pagoInicialFormateado);
 
-        return "pagoReserva";
+        return "confirmarReserva";
     }
 
     @GetMapping("/reservas/pago")
