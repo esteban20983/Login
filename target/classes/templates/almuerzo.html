@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Almuerzos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 15px;
+            width: 250px; /* Ajusta el ancho según sea necesario */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Selecciona tu Almuerzo</h1>
+<h4>Cada almuerzo viene acompañado del jugo tropical que desees.</h4>
+<div class="menu-container">
+    <div class="menu-item">
+        <img src="/image/pasta.png" alt="Pasta">
+        <h2>Pasta</h2>
+        <p>Deliciosa pasta con salsa de tomate y albahaca fresca.</p>
+        <a href="/reservar/almuerzo/pasta" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/ensalada.png" alt="Ensalada">
+        <h2>Ensalada</h2>
+        <p>Ensalada fresca con pollo, aguacate y aderezo ligero.</p>
+        <a href="/reservar/almuerzo/ensalada" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/sandwich.png" alt="Sándwich">
+        <h2>Sándwich</h2>
+        <p>Sándwich de pollo a la parrilla con verduras.</p>
+        <a href="/reservar/almuerzo/sandwich" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/taco.png" alt="Tacos">
+        <h2>Tacos</h2>
+        <p>Tacos de carne asada con cebolla y cilantro.</p>
+        <a href="/reservar/almuerzo/taco" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/pescado.png" alt="Pescado">
+        <h2>Pescado</h2>
+        <p>Pescado a la parrilla con guarnición de verduras.</p>
+        <a href="/reservar/almuerzo/pescado" class="button">Seleccionar</a>
+    </div>
+</div>
+
+</body>
+</html>

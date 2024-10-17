@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .menu-item {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 15px;
+            padding: 15px;
+            width: 250px; /* Ajusta el ancho según sea necesario */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Menú de Bar</h1>
+<h4>Selecciona tu bebida favorita.</h4>
+<div class="menu-container">
+    <div class="menu-item">
+        <img src="/image/cocktail.png" alt="Cóctel">
+        <h2>Cóctel Tropical</h2>
+        <p>Refrescante mezcla de frutas tropicales y ron.</p>
+        <a href="/reservar/bar/cocktail" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/beer.png" alt="Cerveza">
+        <h2>Cerveza Artesanal</h2>
+        <p>Cerveza de elaboración local, fresca y burbujeante.</p>
+        <a href="/reservar/bar/cerveza" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/whiskey.png" alt="Botella de Whisky">
+        <h2>Whisky Premium</h2>
+        <p>Whisky de malta con notas de vainilla y caramelo.</p>
+        <a href="/reservar/bar/whisky" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/margarita.png" alt="Margarita">
+        <h2>Margarita</h2>
+        <p>Clásica margarita con tequila, limón y sal.</p>
+        <a href="/reservar/bar/margarita" class="button">Seleccionar</a>
+    </div>
+    <div class="menu-item">
+        <img src="/image/wine.png" alt="Botella de Vino">
+        <h2>Vino Tinto</h2>
+        <p>Vino tinto de cuerpo completo, ideal para acompañar.</p>
+        <a href="/reservar/bar/vino" class="button">Seleccionar</a>
+    </div>
+</div>
+
+</body>
+</html>

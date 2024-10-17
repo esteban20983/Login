@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Pedido</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .factura {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .botones {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pagar {
+            background-color: #28a745;
+            color: white;
+        }
+        .cancelar {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="factura">
+        <h1>Detalles del Pedido</h1>
+        <p><strong>Fecha:</strong> <span th:text="${fecha}"></span></p>
+        <p><strong>Detalle:</strong> <span th:text="${detalle}"></span></p>
+        <p><strong>Costo:</strong> <span th:text="${#numbers.formatDecimal(costo, 2, 2)}"></span></p>
+        <div class="botones">
+            <form th:action="@{/pagar}" method="get">
+                <button type="submit" class="pagar">Pagar</button>
+            </form>
+            <form th:action="@{/reservar/desayuno}" method="get">
+                <button type="submit" class="cancelar">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

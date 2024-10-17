@@ -39,10 +39,7 @@ public class ReservaControl {
         return "frmSolicitud";
     }
 
-    @GetMapping("/reservar/desayuno")
-    public String reservarDesayuno() {
-        return "/desayuno";
-    }
+    
 
 
     @PostMapping("/reservas/crear")
